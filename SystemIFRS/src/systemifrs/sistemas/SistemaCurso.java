@@ -3,17 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package systemifrs;
+package systemifrs.sistemas;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import systemifrs.Aluno;
+import systemifrs.Curso;
+import systemifrs.Disciplina;
+import systemifrs.SetorEnsino;
 
 /**
  *
  * @author Erick_Nagoski
  */
 public class SistemaCurso {
-   static Curso cadastra_curso(SetorEnsino ensino, BufferedReader br) throws IOException {
+   public static Curso cadastra_curso(SetorEnsino ensino, BufferedReader br) throws IOException {
         Curso c;
 
         c = cria_curso(ensino, br);
@@ -25,7 +29,7 @@ public class SistemaCurso {
         return c;
     }
     
-    static Curso cria_curso(SetorEnsino ensino, BufferedReader br) throws IOException {
+    public static Curso cria_curso(SetorEnsino ensino, BufferedReader br) throws IOException {
         System.out.println("Nome:");
         String nome = (br.readLine());
         
@@ -38,7 +42,7 @@ public class SistemaCurso {
         return a;
     }
     
-    static Curso encontra_curso(SetorEnsino ensino, String nome) throws IOException {
+    public static Curso encontra_curso(SetorEnsino ensino, String nome) throws IOException {
         if (ensino.getCursos() != null) {
             for (Curso curso : ensino.getCursos()) {
                 if (curso != null && curso.getNome().equals(nome)) {
@@ -49,7 +53,7 @@ public class SistemaCurso {
         return null;
     }
     
-    static void ver_cursos(SetorEnsino ensino) {
+    public static void ver_cursos(SetorEnsino ensino) {
         Curso cursos[] = ensino.getCursos();
 
         if (cursos != null) {
@@ -72,7 +76,7 @@ public class SistemaCurso {
         }
     }
     
-    static void ver_notas(SetorEnsino ensino, Aluno alunos[], long matricula) {
+    public static void ver_notas(SetorEnsino ensino, Aluno alunos[], long matricula) {
         boolean aluno_nao_encontrado = true;
 
         if (alunos != null) {
@@ -107,62 +111,4 @@ public class SistemaCurso {
         }
     }
     
-    
-    /*
-    static void ver_cursos(SetorEnsino ensino){ 
-        Curso cursos[] = ensino.getCursos();
-        
-        if(cursos != null){
-            for (Curso curso : cursos) {
-                if (curso != null){
-                    System.out.println("Curso" + curso.getNome()
-                                     + "\nPPC: " + curso.getPpc()
-                                     + "\nDisciplinas: ");
-                    if (curso.getDisciplinas()!= null) {
-                        for (Disciplina d : curso.getDisciplinas()) {
-                            if (d != null){
-                                System.out.println(d.getNome());
-                            }   
-                        }
-                    }
-                }
-            }
-        }else{
-            System.out.println("Não existem cursos cadastrados!");
-        }
-    }
-
-    static void ver_notas(SetorEnsino ensino, Aluno[] alunos, long matricula) {
-        boolean aluno_nao_encontrado =  true;
-        
-        if (alunos != null){
-            for (Aluno aluno : alunos) {
-                if (aluno != null && aluno.getMatricula() == matricula){
-                    aluno_nao_encontrado = false;
-                    Curso cursos[] = ensino.getCursos();
-                    
-                    for (Curso curso : cursos) {
-                        Disciplina disciplinas[] = curso.getDisciplinas();
-                        
-                        for (Disciplina disciplina : disciplinas) {
-                            Aluno a[] = disciplina.getAlunos();
-                            int i = 0;
-                            
-                            while (i != a.length && a[i].getMatricula() != matricula){
-                                i++;
-                            }
-                            float nota = disciplina.getNotas()[i];
-                            
-                            System.out.println("Nota do aluno " + a[i].getNome() + " é de " +nota+"na disciplina " + disciplina.getNome());
-                            break;
-                        }
-                    }
-                }
-            }if (aluno_nao_encontrado){
-            System.err.println("Aluno não matriculado no sistema!");
-            }
-        }else{
-            System.err.println("Ainda não existem alunosno sistema!");
-        }
-    }*/
 }

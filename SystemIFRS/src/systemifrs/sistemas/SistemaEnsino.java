@@ -3,17 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package systemifrs;
+package systemifrs.sistemas;
 
+import systemifrs.sistemas.SistemaProfessor;
+import systemifrs.sistemas.SistemaCurso;
+import systemifrs.sistemas.SistemaAluno;
+import systemifrs.sistemas.SistemaIFRS;
 import java.io.BufferedReader;
 import java.io.IOException;
+import systemifrs.Aluno;
+import systemifrs.Curso;
+import systemifrs.Professor;
+import systemifrs.SetorEnsino;
 
 /**
  *
  * @author Erick_Nagoski
  */
 public class SistemaEnsino {
-    private static void menu_ensino(String opcoes, SetorEnsino ensino, Aluno[] alunos, BufferedReader br) throws IOException {
+    public static void menu_ensino(String opcoes, SetorEnsino ensino, Aluno[] alunos, BufferedReader br) throws IOException {
         int opcao = SistemaIFRS.menu(opcoes, br);
 
         switch (opcao) {

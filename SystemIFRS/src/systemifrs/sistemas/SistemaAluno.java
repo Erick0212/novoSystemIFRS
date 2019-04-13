@@ -3,10 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package systemifrs;
+package systemifrs.sistemas;
 
+import systemifrs.sistemas.SistemaIFRS;
 import java.io.BufferedReader;
 import java.io.IOException;
+import systemifrs.Aluno;
+import systemifrs.Curso;
+import systemifrs.SetorEnsino;
 
 /**
  *
@@ -14,7 +18,7 @@ import java.io.IOException;
  */
 public class SistemaAluno {
     
-    static void menu_alunos(String opcoes, SetorEnsino ensino, Aluno alunos[], BufferedReader br) throws IOException{
+    public static void menu_alunos(String opcoes, SetorEnsino ensino, Aluno alunos[], BufferedReader br) throws IOException{
         int opcao = SistemaIFRS.menu(opcoes, br);
         
         switch (opcao){
@@ -30,13 +34,13 @@ public class SistemaAluno {
         
     }
     
-    static void novo_aluno(SetorEnsino ensino, Aluno[] alunos, BufferedReader br) throws IOException{
+    public static void novo_aluno(SetorEnsino ensino, Aluno[] alunos, BufferedReader br) throws IOException{
         Aluno a = cadastra_aluno(ensino, br, alunos);
 
         SistemaDisciplina.cadastra_disciplinas_aluno(br, ensino, a);
     }
     
-    static Aluno cadastra_aluno(SetorEnsino ensino, BufferedReader br, Aluno[] alunos) throws IOException {
+    public static Aluno cadastra_aluno(SetorEnsino ensino, BufferedReader br, Aluno[] alunos) throws IOException {
         Aluno a = cria_aluno(ensino, br);
 
         for (int i = 0; i < alunos.length; i++) {
@@ -49,7 +53,7 @@ public class SistemaAluno {
         return a;
     }
 
-    static Aluno cria_aluno(SetorEnsino ensino, BufferedReader br) throws IOException {
+    public static Aluno cria_aluno(SetorEnsino ensino, BufferedReader br) throws IOException {
         
         System.out.println("Curso:");
         String nome_curso = br.readLine();

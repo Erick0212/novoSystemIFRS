@@ -5,6 +5,9 @@
  */
 package systemifrs;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  *
  * @author erick
@@ -74,6 +77,40 @@ public class Professor {
         this.nome = nome;
         this.siape = siape;
     }
+    
+    // toString
+
+    @Override
+    public String toString() {
+        return "Professor{" + "nome=" + nome + ", areas=" + areas + ", siape=" + siape + '}';
+    }
+    
+    // equals
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Professor other = (Professor) obj;
+        if (this.siape != other.siape) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.areas, other.areas)) {
+            return false;
+        }
+        return true;
+    }
+    
     
     
     

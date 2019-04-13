@@ -115,12 +115,18 @@ public class Disciplina {
         this.professor = professor;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
-    }
 
+    
+    
+    // toString
+    
+    @Override
+    public String toString() {
+        return "Disciplina{" + "nome=" + nome + ", ano=" + ano + ", professor=" + professor + ", alunos=" + alunos + ", notas=" + notas + '}';
+    }
+        
+    //equals
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -150,8 +156,5 @@ public class Disciplina {
         }
         return true;
     }
-    
-    
-    
-       
+        
 }

@@ -1,6 +1,9 @@
 
 package systemifrs;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  *
  * @author erick
@@ -73,7 +76,7 @@ public class SetorEnsino {
         return false;
     }
 
-    static boolean salvaNotas(float[] notas, Curso curso, Disciplina d) {
+    public boolean salvaNotas(float[] notas, Curso curso, Disciplina d) {
                 for (Disciplina disciplina : curso.getDisciplinas()) {
                     if (disciplina.equals(d)){
                         disciplina.setNotas(notas);
@@ -103,7 +106,7 @@ public class SetorEnsino {
         return false;
     }
     
-    boolean matricularAluno(String nome_curso, Aluno a){
+    public boolean matricularAluno(String nome_curso, Aluno a){
         for (Curso curso : cursos) {
             if (curso.getNome().equalsIgnoreCase(nome_curso)){
                 for (Disciplina d : curso.getDisciplinas()) {
@@ -165,6 +168,44 @@ public class SetorEnsino {
         this.professores = new Professor[10];
         this.cursos = new Curso[10];
     }
+    
+    //toString
+
+    @Override
+    public String toString() {
+        return "SetorEnsino{" + "cursos=" + cursos + ", professores=" + professores + ", diretor=" + diretor + ", coordenador=" + coordenador + '}';
+    }
+    
+    // equals
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final SetorEnsino other = (SetorEnsino) obj;
+        if (!Objects.equals(this.diretor, other.diretor)) {
+            return false;
+        }
+        if (!Objects.equals(this.coordenador, other.coordenador)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.cursos, other.cursos)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.professores, other.professores)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
 
 

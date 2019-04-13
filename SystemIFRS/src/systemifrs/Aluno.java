@@ -5,6 +5,8 @@
  */
 package systemifrs;
 
+import java.util.Objects;
+
 /**
  *
  * @author erick
@@ -17,7 +19,8 @@ public class Aluno {
     private boolean ehFormado;
     private long matricula;
 
-    Aluno() {
+    public Aluno() {
+        
     }
 
     public String verificaStatus(){
@@ -39,6 +42,15 @@ public class Aluno {
         this.matricula = matricula;
     }
 
+    public Aluno(String nome, int anoIngresso, boolean ehFormado, long matricula) {
+        this.nome = nome;
+        this.anoIngresso = anoIngresso;
+        this.ehFormado = ehFormado;
+        this.matricula = matricula;
+    }
+    
+    
+    
     public String getNome() {
         return nome;
     }
@@ -78,5 +90,47 @@ public class Aluno {
     public void setMatricula(long matricula) {
         this.matricula = matricula;
     }
+    
+    // ToString
+
+    @Override
+    public String toString() {
+        return "Aluno{" + "nome=" + nome + ", curso=" + curso + ", anoIngresso=" + anoIngresso + ", ehFormado=" + ehFormado + ", matricula=" + matricula + '}';
+    }
+    
+    // Equals
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Aluno other = (Aluno) obj;
+        if (this.anoIngresso != other.anoIngresso) {
+            return false;
+        }
+        if (this.ehFormado != other.ehFormado) {
+            return false;
+        }
+        if (this.matricula != other.matricula) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.curso, other.curso)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
     
 }

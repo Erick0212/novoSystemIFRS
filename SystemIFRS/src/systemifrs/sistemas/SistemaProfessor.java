@@ -3,17 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package systemifrs;
+package systemifrs.sistemas;
 
+import systemifrs.sistemas.SistemaCurso;
+import systemifrs.sistemas.SistemaIFRS;
 import java.io.BufferedReader;
 import java.io.IOException;
+import systemifrs.Curso;
+import systemifrs.Disciplina;
+import systemifrs.Professor;
+import systemifrs.SetorEnsino;
 
 /**
  *
  * @author Erick_Nagoski
  */
 public class SistemaProfessor {
-     private static void menu_professor(String opcoes, int posicao_professor, SetorEnsino ensino, BufferedReader br) throws IOException {
+    public static void menu_professor(String opcoes, int posicao_professor, SetorEnsino ensino, BufferedReader br) throws IOException {
         int opcao = SistemaIFRS.menu(opcoes, br);
 
         switch (opcao) {
@@ -78,7 +84,7 @@ public class SistemaProfessor {
         }
     }
 
-    static Professor cadastra_professor(BufferedReader br, SetorEnsino ensino) throws IOException {
+    public static Professor cadastra_professor(BufferedReader br, SetorEnsino ensino) throws IOException {
         Professor p;
 
         p = cria_professor(br);
@@ -90,7 +96,7 @@ public class SistemaProfessor {
         return p;
     }
 
-    static Professor encontra_professor(SetorEnsino ensino, String nome_professor) {
+    public static Professor encontra_professor(SetorEnsino ensino, String nome_professor) {
         if (ensino.getProfessores() != null) {
             for (Professor p : ensino.getProfessores()) {
                 if (p != null && p.getNome().equals(nome_professor)) {
@@ -101,7 +107,7 @@ public class SistemaProfessor {
         return null;
     }
 
-    static Professor cria_professor(BufferedReader br) throws IOException {
+    public static Professor cria_professor(BufferedReader br) throws IOException {
         
         System.out.println("Nome:");
         String nome = (br.readLine());
@@ -121,7 +127,7 @@ public class SistemaProfessor {
         return p;
     }
 
-    static int login_professor(int siape, SetorEnsino ensino, BufferedReader br) {
+    public static int login_professor(int siape, SetorEnsino ensino, BufferedReader br) {
         for (int i = 0; ensino.getProfessores() != null
                 && i < ensino.getProfessores().length; i++) {
             if (ensino.getProfessores()[i] != null
@@ -132,7 +138,7 @@ public class SistemaProfessor {
         return -1;
     }
 
-    static boolean nova_area(int pos_professor, SetorEnsino ensino, String area) {
+    public static boolean nova_area(int pos_professor, SetorEnsino ensino, String area) {
         if (ensino.getProfessores() != null) {
             String areas[] = ensino.getProfessores()[pos_professor].getAreas();
 
@@ -146,7 +152,7 @@ public class SistemaProfessor {
         return false;
     }
 
-    static boolean remover_area(int pos_professor, SetorEnsino ensino, String area) {
+    public static boolean remover_area(int pos_professor, SetorEnsino ensino, String area) {
         if (ensino.getProfessores() != null) {
             String areas[] = ensino.getProfessores()[pos_professor].getAreas();
 
@@ -164,7 +170,7 @@ public class SistemaProfessor {
         return ensino.alterarNota(nome_curso, nome_disciplina, matricula, nova_nota);
     }
 
-    static void dar_notas(SetorEnsino ensino, String disciplina, String nome_curso, BufferedReader br) throws IOException {
+    public static void dar_notas(SetorEnsino ensino, String disciplina, String nome_curso, BufferedReader br) throws IOException {
         Curso curso = SistemaCurso.encontra_curso(ensino, nome_curso);
 
         if (curso == null) {

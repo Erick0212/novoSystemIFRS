@@ -3,10 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package systemifrs;
+package systemifrs.sistemas;
 
+import systemifrs.sistemas.SistemaProfessor;
+import systemifrs.sistemas.SistemaCurso;
 import java.io.BufferedReader;
 import java.io.IOException;
+import systemifrs.Aluno;
+import systemifrs.Curso;
+import systemifrs.Disciplina;
+import systemifrs.Professor;
+import systemifrs.SetorEnsino;
 
 /**
  *
@@ -19,7 +26,7 @@ public class SistemaDisciplina {
         return ensino.novaDisciplina(d);
     }
 
-    static Disciplina cria_disciplina(BufferedReader br, Professor p) throws IOException, NumberFormatException {
+    public static Disciplina cria_disciplina(BufferedReader br, Professor p) throws IOException, NumberFormatException {
         System.out.println("Quantos alunos tem na turma?");
         int quantAlunos = Integer.parseInt(br.readLine());
 
@@ -32,7 +39,7 @@ public class SistemaDisciplina {
         return d;
     }
     
-    static void cadastra_disciplinas_aluno(BufferedReader br, SetorEnsino ensino, Aluno a) throws IOException {
+    public static void cadastra_disciplinas_aluno(BufferedReader br, SetorEnsino ensino, Aluno a) throws IOException {
         System.out.print("Informe o nome do curso: ");
         String nome_curso = br.readLine();
         if (ensino.matricularAluno(nome_curso,a)) {
@@ -45,7 +52,7 @@ public class SistemaDisciplina {
         }
     }
     
-    static Disciplina[] recebe_disciplinas(SetorEnsino ensino, BufferedReader br) throws IOException {
+    public static Disciplina[] recebe_disciplinas(SetorEnsino ensino, BufferedReader br) throws IOException {
         Disciplina[] disciplinas = new Disciplina[40];
 
         System.out.println("Digite [1] para terminar e [2] para cadastrar disciplina");
@@ -68,7 +75,7 @@ public class SistemaDisciplina {
         return disciplinas;
     }
 
-    static Disciplina encontra_disciplina(Curso curso, String disciplina) throws IOException {
+    public static Disciplina encontra_disciplina(Curso curso, String disciplina) throws IOException {
         if (curso != null && curso.getDisciplinas() != null) {
             for (Disciplina c : curso.getDisciplinas()) {
                 if (c != null && c.getNome().equals(disciplina)) {
