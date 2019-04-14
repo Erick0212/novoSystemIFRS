@@ -14,7 +14,7 @@ public class Curso {
     private String nome;
     private String ppc;
     private Disciplina[] disciplinas;
-    
+
     public boolean novaDisciplina(Disciplina newDisciplina){
         for (int i = 0; i < disciplinas.length; i++) {
             if(disciplinas[i] == null){
@@ -71,4 +71,9 @@ public class Curso {
         this.disciplinas = disciplinas;
     }
     
+     public Curso(String nome, String ppc) {
+        this.nome = nome;
+        this.ppc = ppc;
+        this.disciplinas = new Disciplina[10];
+    }
 }

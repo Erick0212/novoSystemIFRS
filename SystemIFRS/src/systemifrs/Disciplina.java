@@ -98,5 +98,20 @@ public class Disciplina {
         this.alunos = alunos;
         this.notas = notas;
     }
+
+    public Disciplina(String nome, int ano, Professor professor, Aluno[] alunos) {
+        this.nome = nome;
+        this.ano = ano;
+        this.professor = professor;
+        this.alunos = alunos;
+    }
+
+    public Disciplina(String nome, int ano, Professor professor) {
+        this.nome = nome;
+        this.ano = ano;
+        this.professor = professor;
+    }
+    
+    
        
 }

@@ -69,5 +69,12 @@ public class Professor {
         this.areas = areas;
         this.siape = siape;
     }
+
+    public Professor(String nome, long siape) {
+        this.nome = nome;
+        this.siape = siape;
+    }
+    
+    
     
 }

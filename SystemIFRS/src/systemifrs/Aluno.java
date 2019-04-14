@@ -12,10 +12,13 @@ package systemifrs;
 public class Aluno {
     
     private String nome;
-    private String curso;
+    private Curso curso;
     private int anoIngresso;
     private boolean ehFormado;
     private long matricula;
+
+    Aluno() {
+    }
 
     public String verificaStatus(){
         if(! ehFormado){
@@ -28,7 +31,7 @@ public class Aluno {
         return matricula;
     }
     
-    public Aluno(String nome, String curso, int anoIngressp, boolean ehFormado, long matricula) {
+    public Aluno(String nome, Curso curso, int anoIngressp, boolean ehFormado, long matricula) {
         this.nome = nome;
         this.curso = curso;
         this.anoIngresso = anoIngressp;
@@ -44,11 +47,11 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getCurso() {
+    public Curso getCurso() {
         return curso;
     }
 
-    public void setCurso(String curso) {
+    public void setCurso(Curso curso) {
         this.curso = curso;
     }
 
