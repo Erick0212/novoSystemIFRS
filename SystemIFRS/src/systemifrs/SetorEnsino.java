@@ -26,10 +26,10 @@ public class SetorEnsino {
         return false;
     }
 
-    public boolean novoCurso(String nome, String ppc) {
+    public boolean novoCurso(Curso newCurso) {
         for (int i = 0; i < cursos.length; i++) {
             if (cursos[i] != null) {
-                cursos[i] = new Curso(nome, ppc);
+                cursos[i] = newCurso;
                 return true;
             }
         }
@@ -57,25 +57,25 @@ public class SetorEnsino {
     }
 
     public boolean alterarNota(String nomeCurso, String nomeDisciplina, long matricula, float newNota){
-        for (int i = 0; i < cursos.length; i++) {
-            for (int j = 0; j < cursos[i].getDisciplinas().length; j++) {
-                for (int k = 0; k < cursos[i].getDisciplinas()[j].getAlunos().length; k++) {
-                    if (cursos[i].getDisciplinas()[k] != null && cursos[i].getDisciplinas()[j].getAlunos()[k].getMatricula() == matricula){
-                        acabar aqui
-                    }
-                    
+        int contador = 0;
+        for (Curso curso : cursos) {
+            if(curso.getNome().equalsIgnoreCase(nomeCurso) ){
+                for (Disciplina disciplina : curso.getDisciplinas()) {
+                    if (disciplina.getNome().equalsIgnoreCase(nomeDisciplina)){
+                        for (Aluno aluno : disciplina.getAlunos()) {
+                            contador++;
+                            if (aluno.getMatricula() == matricula){
+                                disciplina.getNotas()[contador] = newNota;
+                                return true;
+                            }
+                        }
+                    }                      
                 }
-                
             }
-            
         }
-        
+        return false;
     }
-    
-    
-    
-    
-    
+   
     public Curso[] getCursos() {
         return cursos;
     }

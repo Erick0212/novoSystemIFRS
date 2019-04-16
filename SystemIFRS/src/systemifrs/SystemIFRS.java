@@ -170,10 +170,12 @@ public class SystemIFRS {
                 String curso = br.readLine();
                 System.out.println("Qual o nome do aluno?");
                 String nome_aluno = br.readLine();
+                System.out.println("Qual a matricula do aluno?");
+                long matricula = Integer.parseInt(br.readLine());
                 System.out.println("Qual a sua nova nota?");
                 float nova_nota = Float.parseFloat(br.readLine());
 
-                if (alterar_nota(ensino, disciplina, curso, nome_aluno, nova_nota)) {
+                if (alterar_nota(ensino, disciplina, curso, matricula, nova_nota)) {
                     System.out.println("Nota "
                             + nova_nota
                             + " alterada para o aluno "
@@ -294,8 +296,8 @@ public class SystemIFRS {
         return false;
     }
 
-    private static boolean alterar_nota(SetorEnsino ensino, String nome_disciplina, String nome_curso, String nome_aluno, float nova_nota) {
-        return ensino.alterarNota(nome_disciplina, nome_curso, nome_aluno, nova_nota);
+    private static boolean alterar_nota(SetorEnsino ensino, String nome_disciplina, String nome_curso, long matricula, float nova_nota) {
+        return ensino.alterarNota(nome_curso, nome_disciplina, matricula, nova_nota);
     }
 
     private static void dar_notas(SetorEnsino ensino, String disciplina, String nome_curso, BufferedReader br) throws IOException {
@@ -435,7 +437,7 @@ public class SystemIFRS {
         Curso c;
 
         c = cria_curso(ensino, br);
-        if (ensino.novoCurso(c)) {
+        if (ensino.novoCurso(c) {
             System.out.println("Curso " + c.getNome());
         } else {
             System.out.println("O limite de cursos foi alcanÃ§ado.");
