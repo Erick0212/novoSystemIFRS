@@ -18,9 +18,8 @@ import java.io.ObjectOutputStream;
  */
 public class testeArquivos{
     
-    public static void salvaArquivo(){
-        Aluno teste = new Aluno("Erick", 23, false, 232);
-        
+    public static void salvaAluno(Aluno aluno){
+     
         try {
             File f = new File("arquivo.bin");
             if (!f.exists()){
@@ -28,38 +27,38 @@ public class testeArquivos{
             }
             try (FileOutputStream fos = new FileOutputStream(f);
                     ObjectOutputStream oos = new ObjectOutputStream(fos)){
-                oos.writeObject(teste);
+                oos.writeObject(aluno);
                         
                     }
-                    System.out.println("dados salvos");
-                
-            
+                    System.out.println("Dados salvos");
         }catch (IOException e){
                 System.err.println(e);
+                System.out.println("Erro ao salvar os arquivos");
         }
         
     }
     
-    public static void leArquivo() throws ClassNotFoundException{
-        Aluno alunoTeste = new Aluno();
+    public static void leAluno() throws ClassNotFoundException{
+        Aluno aluno = new Aluno();
         try {
             File f = new File ("arquivo.bin");
             if (f.exists()){
                 try (FileInputStream fis = new FileInputStream(f);
                         ObjectInputStream ois = new ObjectInputStream(fis)){
-                    alunoTeste = (Aluno) ois.readObject();
+                    aluno = (Aluno) ois.readObject();
                     System.out.println("Dados lidos");
-                    System.out.println(alunoTeste.toString());
+                    System.out.println(aluno.toString());
                 }
             }
         }catch(IOException e){
+            System.out.println(e);
             System.out.println("Erro na leitura");   
         }        
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
          salvaArquivo();
-         leArquivo();
+         leAluno();
         
     }
 }
