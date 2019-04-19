@@ -5,8 +5,6 @@
  */
 package systemifrs.sistemas;
 
-import systemifrs.sistemas.SistemaCurso;
-import systemifrs.sistemas.SistemaIFRS;
 import java.io.BufferedReader;
 import java.io.IOException;
 import systemifrs.Curso;

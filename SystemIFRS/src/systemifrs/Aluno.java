@@ -5,13 +5,14 @@
  */
 package systemifrs;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author erick
  */
-public class Aluno {
+public class Aluno implements Serializable{
     
     private String nome;
     private Curso curso;
