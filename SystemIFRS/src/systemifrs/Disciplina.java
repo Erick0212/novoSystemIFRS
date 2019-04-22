@@ -5,6 +5,9 @@
  */
 package systemifrs;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  *
  * @author erick
@@ -111,6 +114,43 @@ public class Disciplina {
         this.ano = ano;
         this.professor = professor;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Disciplina other = (Disciplina) obj;
+        if (this.ano != other.ano) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.professor, other.professor)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.alunos, other.alunos)) {
+            return false;
+        }
+        if (!Arrays.equals(this.notas, other.notas)) {
+            return false;
+        }
+        return true;
+    }
+    
     
     
        

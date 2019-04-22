@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package systemifrs;
 
 /**
@@ -16,6 +12,27 @@ public class SetorEnsino {
     private String diretor;
     private String coordenador;
 
+    
+     public boolean novaDisciplina(Disciplina newDisciplina){
+         for (int i = 0; i < cursos.length; i++) {
+            if( cursos[i].getDisciplinas() == null){
+                 cursos[i].getDisciplinas()[i] = newDisciplina;
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean removeDisciplina(String nome){
+        for (int i = 0; i < cursos.length; i++){
+            if(cursos[i].getDisciplinas()[i] !=  null && cursos[i].getDisciplinas()[i].getNome().equalsIgnoreCase(nome) ){
+                cursos[i].getDisciplinas()[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public boolean novoProfessor(Professor newProfessor) {
         for (int i = 0; i < professores.length; i++) {
             if (professores[i] != null) {
@@ -56,6 +73,16 @@ public class SetorEnsino {
         return false;
     }
 
+    static boolean salvaNotas(float[] notas, Curso curso, Disciplina d) {
+                for (Disciplina disciplina : curso.getDisciplinas()) {
+                    if (disciplina.equals(d)){
+                        disciplina.setNotas(notas);
+                        return true;
+                    }
+                }
+        return false;
+    }
+    
     public boolean alterarNota(String nomeCurso, String nomeDisciplina, long matricula, float newNota){
         int contador = 0;
         for (Curso curso : cursos) {
@@ -75,6 +102,23 @@ public class SetorEnsino {
         }
         return false;
     }
+    
+    boolean matricularAluno(String nome_curso, Aluno a){
+        for (Curso curso : cursos) {
+            if (curso.getNome().equalsIgnoreCase(nome_curso)){
+                for (Disciplina d : curso.getDisciplinas()) {
+                    for (int i = 0; i < d.getAlunos().length; i++) {
+                        if (d.getAlunos()[i] == null){
+                            d.getAlunos()[i] = a;
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+  
    
     public Curso[] getCursos() {
         return cursos;
@@ -121,5 +165,7 @@ public class SetorEnsino {
         this.professores = new Professor[10];
         this.cursos = new Curso[10];
     }
-  
+
+
+
 }

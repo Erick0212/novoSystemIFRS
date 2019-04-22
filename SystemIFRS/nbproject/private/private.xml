@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/05200245/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/Aluno.java</file>
-            <file>file:/C:/Users/05200245/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/Disciplina.java</file>
-            <file>file:/C:/Users/05200245/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/Professor.java</file>
-            <file>file:/C:/Users/05200245/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SystemIFRS.java</file>
-            <file>file:/C:/Users/05200245/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/Curso.java</file>
-            <file>file:/C:/Users/05200245/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SetorEnsino.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/Curso.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SistemaAluno.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SistemaProfessor.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SistemaIFRS.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/Disciplina.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SetorEnsino.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SistemaDisciplina.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SistemaCurso.java</file>
+            <file>file:/C:/Users/Erick_Nagoski/Desktop/novoSystemIFRS/SystemIFRS/src/systemifrs/SistemaEnsino.java</file>
         </group>
     </open-files>
 </project-private>
